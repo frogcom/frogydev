@@ -1,0 +1,93 @@
+{
+  "projects": {
+    "eerste": {
+      "title": "beste bezoeker",
+      "dialoge": {
+        "1": "Hallo daar, welkom op mijn portfolio ",
+        "2": "Beste bezoeker, Mijn naam is ... Meijer en ik ben een gepassioneerde webontwikkelaar met uitgebreide ervaring in HTML, CSS, JavaScript, Node.js, Python, PHP, MySQL en diverse frameworks, zoals React, Laravel en Django. Ik heb een passie voor het bouwen van schaalbare, responsieve en esthetisch aantrekkelijke websites en webapplicaties die aan de behoeften van mijn klanten voldoen. Ik ben trots op mijn werk en ik zou graag de gelegenheid willen hebben om enkele van mijn projecten met u te delen.",
+
+        "3": "Ik nodig u graag uit om mijn portfolio te doorlopen en te zien wat ik te bieden heb. Als u meer wilt weten over mijn vaardigheden en ervaring, Kunt u ook mijn cv bekijken."
+      }
+    },
+    "tweede": {
+      "title": "softskills",
+      "dialoge": {
+        "1": "onder mijn softskills vallen </br> samen werken, multitasking, comminicatie :",
+        "2": "softskills waar ik nog aan moet werken: </br> leiding geven, grenzen stellen, kritisch zijn op mezelf, ",
+        "3":  ""
+      }
+    },
+    "derde": {
+      "title": "hardskills",
+      "dialoge": {
+        "1": "onder mijn hardskills vallen: html, css , javascript, php,python, laravel, node.js, mysql, git, github en c# met unity",
+        "2": "mijn skills in laravel, c# en unity zou ik nog graag willen verbeteren komendetijd en veel projecten mee maken.",
+        "3": "https://github.com/frogcom"
+      }
+    },
+    "vierde": {
+      "title": "Laravel blog",
+      "dialoge": {
+        "1": "Halverwege het 2e jaar zijn we aan de slag gegaan met Laravel.  Ik heb een blog site gemaakt waar de gebruiker kan inloggen en een blog kan schrijven. uiteindelijk hebben we met een groep studenten ons werk gecombineerd.",
+        "2": "het was heel goed om te ervaren om te samen werken met andere studenten. ",
+        "3": "Dit project staat momenteel niet online maar je kan het wel bekijken op github"
+      }
+    },
+    "vijfde": {
+      "title": "about me",
+      "dialoge": {
+        "1": "Hier kunt u informatie vinden over mijn sterke en zwakke punten. In de volgende berichten zal ik meer vertellen over mijn sterke punten en ook eerlijk zijn over de gebieden waarop ik mezelf kan verbeteren.",
+        "2": "Een van mijn sterke punten is mijn vermogen om goed samen te werken met anderen. Ik ben een communicatieve en empathische teamspeler die altijd openstaat voor nieuwe ideeën en perspectieven. Ik ben ook een harde werker en ik ben toegewijd aan het behalen van resultaten van hoge kwaliteit.",
+        "3": "Hoewel ik over het algemeen goed ben in het werken in teamverband, moet ik soms beter worden in het delegeren van taken en het stellen van grenzen. Ik kan ook kritisch zijn op mezelf en soms te veel tijd besteden aan het perfectioneren van kleine details, waardoor ik soms de grote lijnen uit het oog verlies. Ik ben echter vastbesloten om deze uitdagingen te overwinnen en mijn vaardigheden verder te ontwikkelen."
+      }
+    },
+    "sixth": {
+      "title": "discord bot",
+      "dialoge": {
+        "1": "een ander project waar ik mee bezig ben geweest is een discord bot. ik heb met 2 klasgenoten een discord bot gemaakt. het plan was om een bot te maken die die de verschillende communicatiesystemen die op school worden gebruikt te combineren.",
+        "2": "de bot is momenteel nog onder constructie want we zijn nog steeds bezig met het uitbereiden er van. maar veel van de functies die we gepland hadden werken al of bijna.",
+        "3":  "wil je de bot in werking zien: join de server of anders kan je de source code op github bekijken"
+      }
+    },
+    "seventh": {
+      "title": "7",
+      "dialoge": {
+        "1": "momenteel is hier nog niks te vinden kijk later nog een keer",
+        "2": "momenteel is hier nog niks te vinden kijk later nog een keer",
+        "3": "momenteel is hier nog niks te vinden kijk later nog een keer"
+      }
+    },
+    "acht": {
+      "title": "special",
+      "dialoge": {
+        "1": "dit is de plek meer informatie te krijgen over dit project. het begon allemaal einde van het eerste schooljaar waar we een javascript game moesten maken. ik heb toen een pokemon game gemaakt waar je kon rond lopen over het eiland. ",
+        "2": "een paar maanden geleden had ik besloten verder te gaan met dit project en er mijn portfolio van te maken. en zo gezecht zo gedan ik heb de pokemon game omgebouwd tot een portfolio. door de huizen inter actief te maken waneer je er tegen aan loopt. je berichten ziet. en de map flink uit te bereiden.",
+        "3": "mijn doel voor dit project is om het uit te bereiden tot een nog groter project met een backend om de projecten te editen. code verbeteren en optimalizeren. en meer nieuwe functies toe te voeggen"
+      }
+    },
+    "negen": {
+      "title": "improvements",
+      "dialoge": {
+        "1": "zo wel op hard en soft skills gebied heb ik nog veel te leren. ik ben nog maar net begonnen met het leren van laravel en c# en unity. ik heb nog veel te leren en te verbeteren. maar ik ben vastbesloten om mijn vaardigheden te verbeteren en te leren.",
+        "2": "onder mijn softskills is het krietisch zijn op mijn werk een erg belangrijke en wat meer de tijd nemen om te kijken is dit goed en hoe kan ik dit verbeteren.",
+        "3":  "ik ben vast beraden om mijn vaardigheden te verbeteren en te leren."
+      }
+    },
+    "tien": {
+      "title": "unity game",
+      "dialoge": {
+        "1": "mijn intressen heeft altijd al gelegen bij game development. ik heb altijd al games willen maken. en ben er nu eindelijk mee begonnen om een walking parcoure game te maken. met functies zo als grappling hook sliding wallrunning en andere mechanics. ",
+        "2": "de game is nog een work in progress maar veel van de movement opties zitten er al in. het doel is zeker om meer mechanics toe te voeggen en er een mooie map bij toe te voeggen. maar dat is voor later.",
+        "3": "nu kan je de snapshot van me game zien op github met een zipje om hem te spelen <br> <br> https://github.com/frogcom/wall-runn-tutorial "
+      }
+    },
+    "eleven": {
+      "title": "A-frame ",
+      "dialoge": {
+        "1": "door 1 van mijn docenten kwam ik in aanraking met aFrame. aframe is een javascript framework waar mee je met html tags een vr game kan maken waar in je kan lopen en interactie kan hebben met de omgeving. ",
+        "2": "ik vond dat erg intresant om me in te gaan verdieppen en daarmee heb ik dus flink wat lopen experimenteren",
+        "3": "https://github.com/frogcom/aframe-controller"
+      }
+    }
+  }
+}
