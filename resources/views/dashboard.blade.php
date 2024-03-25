@@ -15,3 +15,14 @@
         </div>
     </div>
 </x-app-layout>
+
+@push('script')
+    <script>
+
+        Echo.channel(`my-channel`)
+            .listen('my-event', (e) => {
+                alert(e.order.name);
+            });
+    </script>
+
+@endpush

@@ -146,9 +146,21 @@
         <button onclick="hide('help', 'menu')" class="hover:bg-white border-0 cursor-pointer text-sm my-4 mx-2  text-red-400 " id="terug">close</button>
     </div>
 </div>
-
+@stack('script')
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
-
+@push('script')
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            Echo.channel(`my-channel`)
+                .listen('.my-event', (e) => {
+                    let price_span = document.querySelector('[data-product-id-bid="'+e.product_id+'"]');
+                    if(price_span) {
+                        price_span.innerHTML = e.amount;
+                    }
+                });
+        });
+    </script>
+@endpush
 
 <script type="module" >
     import {canvas } from '{{asset('js/canvas.js')}}'
@@ -158,7 +170,6 @@
     import * as collision from '{{asset('js/utils.js') }}';
 
     import {charactersMapData} from '{{asset('js/data/characters.js')}}';
-
 
 
 
@@ -408,6 +419,7 @@
     function animate() {
         //
 
+        let currentPosition = player.position;
         const currentTime = Date.now();
         const deltaTime = currentTime - lastTime;
 
@@ -431,90 +443,91 @@
                 return;
             }
 
-            function movementfunction(sprite, offset, positionX, speedX, operatorX, positionY, speedY, operatorY,) {
-                player.animate = true;
-                player.image = sprite;
+            // function movementfunction(sprite, offset, positionX, speedX, operatorX, positionY, speedY, operatorY,) {
+            //     player.animate = true;
+            //     player.image = sprite;
+            //
+            //     collision.checkForCharacterCollision({
+            //         characters,
+            //         player,
+            //         characterOffset: offset,
+            //     });
+            //
+            //     for (let i = 0; i < boundaries.length; i++) {
+            //         const boundary = boundaries[i];
+            //         if (
+            //             collision.rectangularCollision({
+            //                 rectangle1: player,
+            //                 rectangle2: {
+            //                     ...boundary,
+            //                     position: {
+            //                         x: eval(boundary.position.x + positionX),
+            //                         y: eval(boundary.position.y + positionY),
+            //                     },
+            //                 },
+            //             })
+            //         ) {
+            //             moving = false;
+            //             break;
+            //         }
+            //     }
+            //     if (moving)
+            //
+            //         movables.forEach((movable) => {
+            //             // console.log(movable.position.y += speedY)
+            //             movable.position.x = eval(movable.position.x + operatorX + speedY);
+            //             movable.position.y = eval(movable.position.y + operatorY + speedY);
+            //         });
+            //
+            // }
 
-                collision.checkForCharacterCollision({
-                    characters,
-                    player,
-                    characterOffset: offset,
-                });
-
-                for (let i = 0; i < boundaries.length; i++) {
-                    const boundary = boundaries[i];
-                    if (
-                        collision.rectangularCollision({
-                            rectangle1: player,
-                            rectangle2: {
-                                ...boundary,
-                                position: {
-                                    x: eval(boundary.position.x + positionX),
-                                    y: eval(boundary.position.y + positionY),
-                                },
-                            },
-                        })
-                    ) {
-                        moving = false;
-                        break;
-                    }
-                }
-                if (moving)
-
-                    movables.forEach((movable) => {
-                        // console.log(movable.position.y += speedY)
-                        movable.position.x = eval(movable.position.x + operatorX + speedY);
-                        movable.position.y = eval(movable.position.y + operatorY + speedY);
-                    });
-
-            }
-
-
-            if (keys.w.pressed && keys.a.pressed) {
-                movementfunction(
-                    player.sprites.up,
-                    {x: 4, y: 4},
-                    '+ 4',
-                    4,
-                    '+',
-                    '+ 4',
-                    4,
-                    '+'
-                )
-            } else if (keys.a.pressed && keys.s.pressed) {
-                movementfunction(
-                    player.sprites.down,
-                    {x: 4, y: -4},
-                    '+ 4',
-                    4,
-                    '+',
-                    '- 4',
-                    4,
-                    '-'
-                )
-            } else if (keys.s.pressed && keys.d.pressed) {
-                movementfunction(
-                    player.sprites.down,
-                    {x: -4, y: -4},
-                    '- 4',
-                    4,
-                    '-',
-                    '- 4',
-                    4,
-                    '-'
-                )
-            } else if (keys.d.pressed && keys.w.pressed) {
-                movementfunction(
-                    player.sprites.up,
-                    {x: -4, y: 4},
-                    '- 4',
-                    4,
-                    '-',
-                    '+ 4',
-                    4,
-                    '+'
-                )
-            } else if (
+            //
+            // if (keys.w.pressed && keys.a.pressed) {
+            //     movementfunction(
+            //         player.sprites.up,
+            //         {x: 4, y: 4},
+            //         '+ 4',
+            //         4,
+            //         '+',
+            //         '+ 4',
+            //         4,
+            //         '+'
+            //     )
+            // } else if (keys.a.pressed && keys.s.pressed) {
+            //     movementfunction(
+            //         player.sprites.down,
+            //         {x: 4, y: -4},
+            //         '+ 4',
+            //         4,
+            //         '+',
+            //         '- 4',
+            //         4,
+            //         '-'
+            //     )
+            // } else if (keys.s.pressed && keys.d.pressed) {
+            //     movementfunction(
+            //         player.sprites.down,
+            //         {x: -4, y: -4},
+            //         '- 4',
+            //         4,
+            //         '-',
+            //         '- 4',
+            //         4,
+            //         '-'
+            //     )
+            // } else if (keys.d.pressed && keys.w.pressed) {
+            //     movementfunction(
+            //         player.sprites.up,
+            //         {x: -4, y: 4},
+            //         '- 4',
+            //         4,
+            //         '-',
+            //         '+ 4',
+            //         4,
+            //         '+'
+            //     )
+            // } else
+                if (
                 (keys.w.pressed)
             ) {
                 player.animate = true;
@@ -548,7 +561,22 @@
                 if (moving)
                     movables.forEach((movable) => {
                         movable.position.y += movementspeed;
+                        // currentPosition.y += movementspeed;
+
+                        // console.log(currentPosition)
                     });
+
+                // console.log(player.position.x)
+
+                    axios.get('{{route('position')}}', {
+                        params: {
+                            position: currentPosition
+                        }
+                    }).then(function (){
+                        player.position = currentPosition;
+                    })
+
+
             } else if (
                 (keys.a.pressed)
             ) {
@@ -583,6 +611,7 @@
                 if (moving)
                     movables.forEach((movable) => {
                         movable.position.x += movementspeed;
+
                     });
             } else if (
                 (keys.s.pressed)
@@ -655,20 +684,19 @@
                     });
             }
 
-            if(keys.p.pressed){
-                player.animate = true;
-                movables.forEach((movable) => {
-                    movable.position.x = offset.x ;
-                    movable.position.y = offset.y ;
-                });
-            }
+
 
         }
 
         window.requestAnimationFrame(animate);
     }
 
-
+    document.addEventListener("DOMContentLoaded", () => {
+        Echo.channel(`player-position`)
+            .listen('.player', (e) => {
+                console.log(e.playerPosition);
+            })
+    });
 
     animate();
 
@@ -676,3 +704,6 @@
 </body>
 
 </html>
+<script>
+
+</script>
