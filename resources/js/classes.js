@@ -1,4 +1,5 @@
-import {Sprite} from "@/classes.js";
+import {c} from "@/game.js";
+
 export class Sprite {
   constructor({
     uid,
@@ -9,6 +10,7 @@ export class Sprite {
     animate = false,
     rotation = 0,
     scale = 1,
+    id
   }) {
     this.uid = uid;
     this.position = position;
@@ -26,6 +28,7 @@ export class Sprite {
 
     this.rotation = rotation;
     this.scale = scale;
+    this.id = id;
   }
 
   draw() {

@@ -18,12 +18,14 @@ class playerPositions implements ShouldBroadcastNow
 //    public mixed $playerID;
 
     public $playerPosition;
-    public function __construct( $playerPosition)
+    public $playerId;
+    public function __construct( $playerPosition, $playerId)
     {
         //
 //        $this->playerID = $playerID;
 
         $this->playerPosition = $playerPosition;
+        $this->playerId = $playerId;
     }
 
     /**
@@ -34,7 +36,7 @@ class playerPositions implements ShouldBroadcastNow
     public function broadcastOn(): array
     {
         return [
-            new channel('player-position'),
+            new PrivateChannel('player-position'),
         ];
     }
     public function broadcastAs()
