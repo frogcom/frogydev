@@ -4,7 +4,6 @@ import {collisions} from "@/data/collisions.js";
 import * as collision from "@/utils.js"
 import {charactersMapData} from "@/data/characters.js"
 import {Sprite, Boundary} from "@/classes.js";
-import {i} from "vite/dist/node/types.d-FdqQ54oU.js";
 
 const canvas = document.querySelector("canvas");
 export const c = canvas.getContext("2d");
@@ -103,7 +102,7 @@ charactersMap.forEach((row, i) => {
         }
     });
 });
-
+-0
 const image = new Image();
 image.src = "img/pellettown.png";
 
@@ -157,75 +156,60 @@ const foreground = new Sprite({
     },
     image: foregroundImage,
 });
-// Echo.private(`player-position`)
-//     .listenForWhisper('position', (e) => {
-//         // console.log(e.position);
-//
-//
-//         window.players = e;
-//     });
 
 
-// window.players.forEach((symbol, j) => {
-//     console.log(symbol, j)
-//     players.push(
-//         new Sprite({
-//
-//             position: {
-//                 x: canvasW / 2 - 192 / 4 / 2,
-//                 y: canvasH / 2 - 68 / 2,
-//             },
-//             image: playerDownImage,
-//             frames: {
-//                 max: 4,
-//                 hold: 10,
-//             },
-//             sprites: {
-//                 up: playerUpImage,
-//                 left: playerLeftImage,
-//                 right: playerRightImage,
-//                 down: playerDownImage,
-//             },
-//             id: Math.random().toString(16).slice(2)
-//         })
-//     );
-// });
+
 let players = []
-// players.push( new Sprite({
-//     position: {
-//         x: player.position.x,
-//         y: player.position.y,
-//     },
-//     image: playerDownImage,
-//     frames: {
-//         max: 4,
-//         hold: 10,
-//     },
-//     sprites: {
-//         up: playerUpImage,
-//         left: playerLeftImage,
-//         right: playerRightImage,
-//         down: playerDownImage,
-//     },
-// }));
 
-const movables = [background, ...players, ...boundaries, foreground, ...characters,  ];
-const renderables = [
+let movables = [background,  ...boundaries, foreground,...players, ...characters ];
+let renderables = [
     background,
     ...boundaries,
     ...characters,
     player,
+    ...players,
     foreground,
-    ...players
 ];
+Echo.private(`player`)
+    .listen('joinLeave', (e) => {
 
-Echo.private(`player-position`)
-    .listenForWhisper('position', (e) => {
-        // console.log(e.position);
-
+        alert('test');
         console.log(e)
 
+
     });
+
+// Echo.private(`player`)
+//     .listenForWhisper('position', (e) => {
+//         // console.log(e.position);
+//         console.log(e.players)
+//
+//         e.players.forEach((key, value) => {
+//             console.log(value)
+//             players.push(value)
+//         })
+//     });
+Echo.join('player')
+    .joining((user) => {
+        // a user has joined.
+
+        axios.put(window.routes.joinLeaves, {
+            params: {
+                player,
+            }
+        }).then( (res) => {
+            console.log(res.data);
+        })
+            .catch( (err) => {
+                console.log(err)
+            });
+    })
+    .leaving((user) => {
+
+
+        // a user has left.
+    });
+
 
 let lastTime = 0;
 const textDiv = document.getElementById("textdiv");
@@ -319,53 +303,9 @@ window.addEventListener("keyup", (e) => {
 });
 
 let movementspeed = 4;
-const fps = 30;
+const fps = 60;
 const interval = 1000 / fps;
-Echo.join('player-position')
-    .joining((user) => {
 
-        // a user has joined.
-
-        players.push( new Sprite({
-            position: {
-                x: playerStartPosition.x,
-                y: playerStartPosition.y,
-            },
-            image: playerDownImage,
-            frames: {
-                max: 4,
-                hold: 10,
-            },
-            sprites: {
-                up: playerUpImage,
-                left: playerLeftImage,
-                right: playerRightImage,
-                down: playerDownImage,
-            },
-        }));
-        renderables.push(...players)
-        movables.push(...players)
-        console.log(players)
-        Echo.private(`player-position`)
-            .whisper('position', {
-                players: players,
-            });
-    })
-    .leaving((user) => {
-        // a user has left.
-        console.log('test')
-        console.log(user)
-    });
-
-
-// Echo.private(`player-position`)
-//     .listenForWhisper('position', (e) => {
-//         // console.log(e.position);
-//         e.forEach(function callback(value, index) {
-//             console.log(`${index}: ${value}`);
-//         });
-//
-//     });
 
 function animate() {
     //
@@ -641,24 +581,8 @@ function animate() {
 
     }
 
-    // document.addEventListener("DOMContentLoaded", () => {
-    //     Echo.channel(`player-position`)
-    //         .listen('.player', (e) => {
-    //             console.log(e.playerPosition)
-    //         })
-    //
-    //
-    // });
 
-    let oldposition = playerPosition;
 
-    // if (oldposition != playerPosition){
-    //     Echo.private(`player-position`)
-    //         .whisper('position', {
-    //             id: player.id,
-    //             position: playerPosition,
-    //         });
-    // }
 
     window.requestAnimationFrame(animate);
 }

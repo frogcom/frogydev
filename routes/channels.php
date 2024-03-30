@@ -9,6 +9,6 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 //Broadcast::channel('player-position', function ($user, $id) {
 //    return (int) $user->id === (int) $id;
 //});
-Broadcast::channel('player-position', function ($user) {
+Broadcast::channel('player', function ($user) {
     return 'test'; // Or any other authorization logic
 });

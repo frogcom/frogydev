@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\PageController::class, 'Index'])->name('welkom');
 
-Route::get('position', [\App\Http\Controllers\PlayerController::class, 'position'] )->name('position');
+Route::put('joining', [\App\Http\Controllers\PlayerController::class, 'position'] )->name('joining');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

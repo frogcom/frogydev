@@ -11,6 +11,7 @@ class PlayerController extends Controller
 
     public function position(Request $request)
     {
-        playerPositions::dispatch($request->position);
+        return $request->player;
+        broadcast( new playerPositions($request->get('player')));
     }
 }

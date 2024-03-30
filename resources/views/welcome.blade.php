@@ -150,7 +150,7 @@
 <script>
 
     window.routes = {
-        'position' : '{{ route('position') }}',
+        'joinLeaves' : '{{ route('joining') }}',
     }
 
 </script>
