@@ -192,7 +192,7 @@ Echo.private(`player`)
 Echo.join('player')
     .joining((user) => {
         // a user has joined.
-
+        alert('test');
         axios.put(window.routes.joinLeaves, {
             params: {
                 player,
